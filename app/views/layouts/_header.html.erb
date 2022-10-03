@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Test</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      </ul>
+      <form class="d-flex">
+        <% if current_user.blank? %>
+          <%= link_to "Đăng nhập", new_user_session_path %> &nbsp;| &nbsp;
+          <%= link_to "Đăng ký", new_user_registration_path %>
+        <% else %>
+          <ul>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <%= current_user.user_name %>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><%= link_to "Cài đặt", edit_user_password_path, class: "dropdown-item" %></li>
+                <li><%= link_to "Đăng xuất", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+              </ul>
+            </li>
+          </ul>
+        <% end %>
+      </form>
+    </div>
+  </div>
+</nav>
