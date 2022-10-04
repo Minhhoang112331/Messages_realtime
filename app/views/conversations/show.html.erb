@@ -1,11 +1,12 @@
 <div class="container">
-  <div id ="msg" %>
+  <h1 class="ta-center">Chat</h1>
+  <div id ="msg-<%= params[:id] %>" %>
     <%= render "messages/messages", messages: @messages %>
   </div>
 
   <%= form_for @message, remote: true do |f| %>
     <%= f.text_area :content, id: "content" %>
     <%= f.hidden_field :conversation_id, value: params[:id] %>
-    <%= f.submit "Send" %>
+    <%= f.submit "Send", class: "send" %>
   <% end %>
 </div>

@@ -1,3 +1,10 @@
 <% messages.map do |msg| %>
-    <b><%= msg.user.user_name %></b> : <%= msg.content %> <br />
-  <% end %>
+    <div class="box-msg">
+        <% if msg.conversation.sender_id == msg.user.id %>
+            <b><%= msg.user.user_name %></b> : <%= msg.content %> <br />
+        <% else %>
+            <span class="aa"><b><%= msg.user.user_name %></b> : <%= msg.content %></span> <br />
+        <% end %>
+    </div>
+<% end %>
+

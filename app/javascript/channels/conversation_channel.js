@@ -10,6 +10,6 @@ consumer.subscriptions.create("ConversationChannel", {
   },
 
   received(data) {
-    $("#msg").html(data.layout)
+    $("#msg-" + data.conversation_id).html(data.layout)
   }
 });
